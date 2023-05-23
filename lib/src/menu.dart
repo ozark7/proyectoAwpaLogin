@@ -1,3 +1,4 @@
+import 'package:awpa/src/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -10,20 +11,21 @@ class menu extends StatefulWidget {
 
 class _menuState extends State<menu> {
   int _currentIndex = 0;
+  int _currentIndex2 = 0;
 
   final screens = [
     const Center(child: Text('Home Screen', style: TextStyle(fontSize: 45))),
     const Center(
         child: Text('Favorites Screen', style: TextStyle(fontSize: 45))),
     const Center(child: Text('Search Screen', style: TextStyle(fontSize: 45))),
-    const Center(child: Text('Profile Screen', style: TextStyle(fontSize: 45))),
+    const Center(child: Text('', style: TextStyle(fontSize: 45))),
   ];
 
   final colors = [
-    Colors.cyan,
-    Colors.purple,
-    Colors.green,
-    Colors.red,
+    Color.fromARGB(253, 3, 218, 247),
+    Color.fromARGB(220, 204, 6, 239),
+    Color.fromARGB(255, 34, 143, 38),
+    Color.fromARGB(255, 220, 125, 17),
   ];
   @override
   Widget build(BuildContext context) {
@@ -32,19 +34,46 @@ class _menuState extends State<menu> {
         title: const Text("Awpa",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700)),
         centerTitle: true,
-        backgroundColor: colors[_currentIndex],
+        backgroundColor: colors[_currentIndex2],
       ),
-      body: screens[_currentIndex],
+      body: screens[_currentIndex2],
+      // Variable para almacenar el índice seleccionado
+
+// ...
+
       bottomNavigationBar: Container(
         padding: EdgeInsets.symmetric(horizontal: 10),
         margin: EdgeInsets.only(bottom: 10),
         child: GNav(
-          color: colors[_currentIndex],
-          tabBackgroundColor: colors[_currentIndex],
-          selectedIndex: _currentIndex,
+          color: colors[_currentIndex2],
+          tabBackgroundColor: colors[_currentIndex2],
+          selectedIndex: _currentIndex2,
           tabBorderRadius: 10,
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-          onTabChange: (index) => {setState(() => _currentIndex = index)},
+          onTabChange: (index) {
+            // Actualizar el estado y ejecutar acciones según la pestaña seleccionada
+            setState(() => _currentIndex2 = index);
+
+            // Ejecutar acciones personalizadas según el índice seleccionado
+            if (index == 3) {
+              // Pestaña Profile
+              Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      const Profile(),
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) {
+                    return FadeTransition(
+                      opacity: animation,
+                      child: child,
+                    );
+                  },
+                  transitionDuration: Duration(milliseconds: 0),
+                ),
+              );
+            }
+          },
           tabs: const [
             GButton(
               icon: Icons.home,
@@ -69,7 +98,7 @@ class _menuState extends State<menu> {
               text: "Profile",
               iconActiveColor: Colors.white,
               textColor: Colors.white,
-            )
+            ),
           ],
         ),
       ),
