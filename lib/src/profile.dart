@@ -14,14 +14,15 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             // Acción al presionar el botón de regreso
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => const menu()),
-            ); // Navegar hacia atrás en la ruta anterior
+            ); // Reemplazar la página actual con la nueva página
           },
         ),
         title: Text("Profile"),

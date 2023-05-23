@@ -1,3 +1,4 @@
+import 'package:awpa/src/app.dart';
 import 'package:awpa/src/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -14,7 +15,10 @@ class _menuState extends State<menu> {
   int _currentIndex2 = 0;
 
   final screens = [
-    const Center(child: Text('Home Screen', style: TextStyle(fontSize: 45))),
+    const Center(
+        child: Scaffold(
+      body: Text("dada"),
+    )),
     const Center(
         child: Text('Favorites Screen', style: TextStyle(fontSize: 45))),
     const Center(child: Text('Search Screen', style: TextStyle(fontSize: 45))),
@@ -25,12 +29,23 @@ class _menuState extends State<menu> {
     Color.fromARGB(253, 3, 218, 247),
     Color.fromARGB(220, 204, 6, 239),
     Color.fromARGB(255, 34, 143, 38),
-    Color.fromARGB(255, 220, 125, 17),
+    Color.fromARGB(255, 236, 52, 10),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            // Acción al presionar el botón de regreso
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MyAppForm()),
+            ); // Navegar hacia atrás en la ruta anterior
+          },
+        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         title: const Text("Awpa",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700)),
         centerTitle: true,

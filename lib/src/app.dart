@@ -41,7 +41,7 @@ class _MyAppFormState extends State<MyAppForm> {
                     //backgroundColor: Colors.transparent,
                     backgroundImage: AssetImage('images/image.png'),
                   ),
-                  Divider(height: 50, color: Colors.orange),
+                  Divider(height: 150, color: Colors.orange),
                   /*Text(
                     "login",
                     style: TextStyle(fontFamily: 'arial', fontSize: 30.0),
@@ -94,7 +94,7 @@ class _MyAppFormState extends State<MyAppForm> {
                       ),
                     ),
                   ),
-                  Divider(height: 15),
+                  Divider(height: 25),
                   Row(children: [
                     Container(
                       width: MediaQuery.of(context).size.width * 0.25,
