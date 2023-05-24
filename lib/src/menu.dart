@@ -22,19 +22,41 @@ class _menuState extends State<menu> {
     const Center(
         child: Text('Favorites Screen', style: TextStyle(fontSize: 45))),
     const Center(child: Text('Search Screen', style: TextStyle(fontSize: 45))),
-    const Center(child: Text('', style: TextStyle(fontSize: 45))),
+    const Center(child: Scaffold()),
   ];
 
   final colors = [
     Color.fromARGB(253, 3, 218, 247),
     Color.fromARGB(220, 204, 6, 239),
     Color.fromARGB(255, 34, 143, 38),
-    Color.fromARGB(255, 236, 52, 10),
+    //Color.fromARGB(255, 236, 52, 10),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(Icons.person),
+            onPressed: () {
+              Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      const Profile(),
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) {
+                    return FadeTransition(
+                      opacity: animation,
+                      child: child,
+                    );
+                  },
+                  transitionDuration: Duration(milliseconds: 800),
+                ),
+              );
+            },
+          ),
+        ],
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -70,7 +92,7 @@ class _menuState extends State<menu> {
             setState(() => _currentIndex2 = index);
 
             // Ejecutar acciones personalizadas según el índice seleccionado
-            if (index == 3) {
+            /* if (index == 3) {
               // Pestaña Profile
               Navigator.push(
                 context,
@@ -87,7 +109,7 @@ class _menuState extends State<menu> {
                   transitionDuration: Duration(milliseconds: 0),
                 ),
               );
-            }
+            } */
           },
           tabs: const [
             GButton(
@@ -108,12 +130,12 @@ class _menuState extends State<menu> {
               iconActiveColor: Colors.white,
               textColor: Colors.white,
             ),
-            GButton(
+            /* GButton(
               icon: Icons.person,
               text: "Profile",
               iconActiveColor: Colors.white,
               textColor: Colors.white,
-            ),
+            ), */
           ],
         ),
       ),

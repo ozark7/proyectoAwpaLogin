@@ -41,7 +41,7 @@ class _MyAppFormState extends State<MyAppForm> {
                     //backgroundColor: Colors.transparent,
                     backgroundImage: AssetImage('images/image.png'),
                   ),
-                  Divider(height: 150, color: Colors.orange),
+                  Divider(height: 50, color: Colors.orange),
                   /*Text(
                     "login",
                     style: TextStyle(fontFamily: 'arial', fontSize: 30.0),
@@ -94,79 +94,66 @@ class _MyAppFormState extends State<MyAppForm> {
                       ),
                     ),
                   ),
-                  Divider(height: 25),
-                  Row(children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.25,
-                      child: SizedBox(
-                        //width: double.infinity,
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const menu()),
-                            );
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.all(2.0),
-                            child: Text(
-                              "Login",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20.0,
-                                fontFamily: "arial",
-                              ),
-                            ),
-                          ),
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all<OutlinedBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                side: BorderSide(color: Colors.blue),
-                              ),
-                            ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const menu()),
+                        );
+                      },
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20.0,
+                            fontFamily: "arial"),
+                      ),
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<OutlinedBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            side: BorderSide(
+                                color: const Color.fromARGB(115, 102, 94, 94)),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(width: 10),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.25,
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Profile()),
-                            );
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.all(2.0),
-                            child: Text(
-                              "Guest",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20.0,
-                                fontFamily: "arial",
-                              ),
-                            ),
-                          ),
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all<OutlinedBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                side: BorderSide(color: Colors.blue),
-                              ),
-                            ),
+                  ),
+                  Divider(
+                    height: 25,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: TextButton(
+                      onPressed: () {
+                        /*  Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const menu()),
+                        ); */
+                      },
+                      child: Text(
+                        "Guest",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20.0,
+                            fontFamily: "arial"),
+                      ),
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<OutlinedBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            side: BorderSide(
+                                color: const Color.fromARGB(115, 102, 94, 94)),
                           ),
                         ),
                       ),
                     ),
-                  ]),
-
+                  ),
                   //Divider(height: 10),
                 ],
               ),
